@@ -40,8 +40,15 @@ public:
 	// Destructor that frees the opened handle
 	~Memory()
 	{
-		if (processHandle)
-			::CloseHandle(processHandle);
+		// idk how but if i uncomment prgramm will thrown an exception and crash by exit
+		/*
+		try {
+			if (processHandle)
+				::CloseHandle(processHandle);
+		}
+		catch (const std::exception& e) {
+				// ignore
+			}*/ 
 	}
 
 	// Returns the base address of a module by name

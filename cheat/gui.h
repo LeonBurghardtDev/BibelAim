@@ -10,6 +10,7 @@ namespace gui
 	// when this changes, exit threads
 	// and close menu :)
 	inline bool isRunning = true;
+	inline bool showMenu = true;
 
 	// winapi window vars
 	inline HWND window = nullptr;

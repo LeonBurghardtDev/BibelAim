@@ -4,12 +4,15 @@
 #include "../imgui/imgui_impl_dx9.h"
 #include "../imgui/imgui_impl_win32.h"
 
+#include "globals.h"
+
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
 	HWND window,
 	UINT message,
 	WPARAM wideParameter,
 	LPARAM longParameter
 );
+
 
 long __stdcall WindowProcess(
 	HWND window,
@@ -69,6 +72,8 @@ long __stdcall WindowProcess(
 		}
 
 	}return 0;
+	
+
 
 	}
 
@@ -106,6 +111,12 @@ void gui::CreateHWindow(const char* windowName) noexcept
 		windowClass.hInstance,
 		0
 	);
+	
+	if (window)
+	{
+		// Set the window to be always on top
+		SetWindowPos(window, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+	}
 
 	ShowWindow(window, SW_SHOWDEFAULT);
 	UpdateWindow(window);
@@ -177,6 +188,7 @@ void gui::CreateImGui() noexcept
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO& io = ::ImGui::GetIO();
+	io.Fonts->AddFontFromFileTTF("../fonts/Ubuntu-Regular.ttf", 14.0f);
 
 	io.IniFilename = NULL;
 
@@ -238,8 +250,12 @@ void gui::EndRender() noexcept
 		ResetDevice();
 }
 
+
 void gui::Render() noexcept
 {
+
+	// good -> https://www.youtube.com/watch?v=iOQ7ZrNQLuI
+	
 	ImGui::SetNextWindowPos({ 0, 0 });
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
@@ -248,10 +264,29 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoSavedSettings |
 		ImGuiWindowFlags_NoCollapse |
+		ImGuiWindowFlags_NoBringToFrontOnFocus |
 		ImGuiWindowFlags_NoMove
 	);
 
-	ImGui::Button("test");
+	if (ImGui::BeginTabBar("##tabs")) {
+		
+		if (ImGui::BeginTabItem("glow")) {
+			
+			ImGui::Checkbox("glow", &globals::glow);
+			if (globals::glow) {
+				ImGui::ColorEdit4("glow color", globals::glowColor);
+			}
+			ImGui::EndTabItem();
+		}
+
+		if (ImGui::BeginTabItem("radar")) {
+			ImGui::Checkbox("radar", &globals::radar);
+			ImGui::EndTabItem();
+		}
+
+		ImGui::EndTabBar();
+	}
 
 	ImGui::End();
 }
+

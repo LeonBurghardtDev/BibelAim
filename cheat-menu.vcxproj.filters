@@ -51,6 +51,18 @@
     <ClInclude Include="cheat\offsets\csgo.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cheat\globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\hacks\hacks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\hacks\glow\glow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\hacks\radar\radar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -83,5 +95,24 @@
     <ClCompile Include="cheat\hacks\skinchanger\skinchanger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cheat\hacks\hacks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\hacks\glow\glow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\hacks\radar\radar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\Ubuntu-Bold.ttf" />
+    <Font Include="fonts\Ubuntu-BoldItalic.ttf" />
+    <Font Include="fonts\Ubuntu-Italic.ttf" />
+    <Font Include="fonts\Ubuntu-Light.ttf" />
+    <Font Include="fonts\Ubuntu-LightItalic.ttf" />
+    <Font Include="fonts\Ubuntu-Medium.ttf" />
+    <Font Include="fonts\Ubuntu-MediumItalic.ttf" />
+    <Font Include="fonts\Ubuntu-Regular.ttf" />
   </ItemGroup>
 </Project>

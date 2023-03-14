@@ -144,7 +144,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cheat\globals.h" />
     <ClInclude Include="cheat\gui.h" />
+    <ClInclude Include="cheat\hacks\glow\glow.h" />
+    <ClInclude Include="cheat\hacks\hacks.h" />
+    <ClInclude Include="cheat\hacks\radar\radar.h" />
     <ClInclude Include="cheat\hacks\skinchanger\skinchanger.h" />
     <ClInclude Include="cheat\offsets\csgo.hpp" />
     <ClInclude Include="cheat\utils\memory.h" />
@@ -159,6 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cheat\gui.cpp" />
+    <ClCompile Include="cheat\hacks\glow\glow.cpp" />
+    <ClCompile Include="cheat\hacks\hacks.cpp" />
+    <ClCompile Include="cheat\hacks\radar\radar.cpp" />
     <ClCompile Include="cheat\hacks\skinchanger\skinchanger.cpp" />
     <ClCompile Include="cheat\main.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
@@ -168,6 +175,16 @@
     <ClCompile Include="imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\Ubuntu-Bold.ttf" />
+    <Font Include="fonts\Ubuntu-BoldItalic.ttf" />
+    <Font Include="fonts\Ubuntu-Italic.ttf" />
+    <Font Include="fonts\Ubuntu-Light.ttf" />
+    <Font Include="fonts\Ubuntu-LightItalic.ttf" />
+    <Font Include="fonts\Ubuntu-Medium.ttf" />
+    <Font Include="fonts\Ubuntu-MediumItalic.ttf" />
+    <Font Include="fonts\Ubuntu-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

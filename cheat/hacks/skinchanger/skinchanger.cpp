@@ -1,5 +1,6 @@
 #include "../../utils/memory.h"
 #include "../../offsets/csgo.hpp"
+#include "../../globals.h"
 #include <thread>
 #include <iostream>
 #include <array>
@@ -20,12 +21,12 @@
 		}
 	}
 
-	int skinchanger_main(Memory memory, uintptr_t client, uintptr_t engine) {
-
-
-		while (true) {
+	int skinchanger_main(const Memory& memory) {
+		
+		uintptr_t client = globals::clientAdress;
+		uintptr_t engine = globals::engineAdress;
+		
 			try {
-				std::this_thread::sleep_for(std::chrono::milliseconds(2));
 
 				const auto& localPlayer = memory.Read<std::uintptr_t>(client + hazedumper::signatures::dwLocalPlayer);
 				const auto& weapons = memory.Read<std::array<unsigned long, 8>>(localPlayer + hazedumper::netvars::m_hMyWeapons);
@@ -58,7 +59,6 @@
 			catch (const std::exception& e) {
 				std::cout << e.what() << std::endl;
 			}
-		}
-
+		
 		return 0;
 	}

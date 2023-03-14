@@ -1,7 +1,8 @@
 #include "gui.h"
-#include "utils/memory.h"
+#include "hacks/hacks.h"
 #include <iostream> 
 #include <thread>
+#include "globals.h"
 #include "hacks/skinchanger/skinchanger.h"
 
 
@@ -10,32 +11,26 @@ int __stdcall wWinMain(
     HINSTANCE instance,
     HINSTANCE previousInstance,
     PWSTR arguments,
-    int commandShow)
-{
-    // create gui
-    gui::CreateHWindow("BibelAim");
-    gui::CreateDevice();
-    gui::CreateImGui();
+    int commandShow){
 
     /////////// load cheats
 
     // mem obj
-    const auto memory = Memory("csgo.exe");
+    Memory memory = Memory("csgo.exe");
 
-    // get module address
-    const auto client = memory.GetModuleAddress("client.dll");
-    const auto engine = memory.GetModuleAddress("engine.dll");
-
-    if (!client || !engine)
+	globals::clientAdress = memory.GetModuleAddress("client.dll");
+	globals::engineAdress = memory.GetModuleAddress("engine.dll");
+	
+    if (!globals::clientAdress || !globals::engineAdress)
         return EXIT_FAILURE;
 
-    // create a thread for the `skinchanger_main` function
-    std::thread skinchanger_thread(skinchanger_main, memory, client, engine);
-
-    // detach the thread from the main thread
-    skinchanger_thread.detach();
-    
-    /////////////
+  
+    std::thread(hacks::VisualThread, memory).detach();
+        
+    // create gui
+    gui::CreateHWindow("BibelAim");
+    gui::CreateDevice();
+    gui::CreateImGui();
     
     while (gui::isRunning)
     {

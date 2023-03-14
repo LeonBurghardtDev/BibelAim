@@ -2,4 +2,4 @@
 
 
 
-int skinchanger_main(Memory, uintptr_t, uintptr_t);
+int skinchanger_main(const Memory& memory);
