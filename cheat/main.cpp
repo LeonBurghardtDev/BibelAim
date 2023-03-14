@@ -1,5 +1,5 @@
 #include "gui.h"
-#include "hacks/hacks.h"
+#include "hacks/threads.h"
 #include <iostream> 
 #include <thread>
 #include "globals.h"
@@ -12,21 +12,25 @@ int __stdcall wWinMain(
     HINSTANCE previousInstance,
     PWSTR arguments,
     int commandShow){
-
-    /////////// load cheats
-
+    
     // mem obj
     Memory memory = Memory("csgo.exe");
+    
+    if (memory.GetProcessId() != 0) 
+    {
+       globals::csgoRunning = true;
+    }
+    
+    globals::clientAdress = memory.GetModuleAddress("client.dll");
+    globals::engineAdress = memory.GetModuleAddress("engine.dll");
 
-	globals::clientAdress = memory.GetModuleAddress("client.dll");
-	globals::engineAdress = memory.GetModuleAddress("engine.dll");
-	
-    if (!globals::clientAdress || !globals::engineAdress)
-        return EXIT_FAILURE;
 
-  
-    std::thread(hacks::VisualThread, memory).detach();
-        
+	// create threads 
+    std::thread(threads::VisualThread, memory).detach();
+	std::thread(threads::SkinChangerThread, memory).detach();
+    std::thread(threads::MovementThread, memory).detach();
+	std::thread(threads::AimbotThread, memory).detach();
+    
     // create gui
     gui::CreateHWindow("BibelAim");
     gui::CreateDevice();

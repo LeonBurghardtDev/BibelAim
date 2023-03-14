@@ -1,4 +1,4 @@
 #pragma once
 #include "../../utils/memory.h"
 
-int glow_main(const Memory& memory);
+void bhop_main(const Memory&);

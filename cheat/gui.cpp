@@ -267,24 +267,74 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoBringToFrontOnFocus |
 		ImGuiWindowFlags_NoMove
 	);
+	
+	if (globals::csgoRunning) {
 
-	if (ImGui::BeginTabBar("##tabs")) {
-		
-		if (ImGui::BeginTabItem("glow")) {
-			
-			ImGui::Checkbox("glow", &globals::glow);
-			if (globals::glow) {
-				ImGui::ColorEdit4("glow color", globals::glowColor);
+		if (ImGui::BeginTabBar("##tabs")) {
+
+
+
+			if (ImGui::BeginTabItem("Main")) {
+
+
+
+				ImGui::EndTabItem();
 			}
-			ImGui::EndTabItem();
-		}
 
-		if (ImGui::BeginTabItem("radar")) {
-			ImGui::Checkbox("radar", &globals::radar);
-			ImGui::EndTabItem();
-		}
+			if (ImGui::BeginTabItem("Visuals")) {
 
-		ImGui::EndTabBar();
+				ImGui::Checkbox("glow", &globals::glow);
+				if (globals::glow) {
+					ImGui::ColorEdit4("glow color", globals::glowColor);
+				}
+				ImGui::Checkbox("radar", &globals::radar);
+
+				ImGui::EndTabItem();
+
+
+			}
+			if (ImGui::BeginTabItem("Aimbot")) {
+				ImGui::Checkbox("Triggerbot", &globals::triggerbot);
+				ImGui::Checkbox("RCS", &globals::rcs);
+
+
+				ImGui::EndTabItem();
+			}
+
+			if (ImGui::BeginTabItem("Movement")) {
+				ImGui::Checkbox("Bhop", &globals::bhop);
+
+
+				ImGui::EndTabItem();
+			}
+
+			if (ImGui::BeginTabItem("SkinChanger")) {
+				ImGui::Checkbox("SkinChanger", &globals::skinchanger);
+
+
+				ImGui::EndTabItem();
+
+			}
+			if (ImGui::BeginTabItem("Misc")) {
+
+
+
+				ImGui::EndTabItem();
+			}
+			if (ImGui::BeginTabItem("Settings")) {
+
+
+
+				ImGui::EndTabItem();
+			}
+
+
+			ImGui::EndTabBar();
+		}
+	}
+	else {
+		ImGui::Text("Counter Strike Global Offensive is not currently running\nor the process (csgo.exe) could not be found.\nPlease start the game before running the cheat.");
+
 	}
 
 	ImGui::End();

@@ -13,6 +13,12 @@ private:
 	void* processHandle = nullptr;
 
 public:
+
+	std::uintptr_t GetProcessId() const noexcept
+	{
+		return processId;
+	}
+	
 	// Constructor that finds the process id
 	// and opens a handle
 	Memory(const std::string_view processName) noexcept

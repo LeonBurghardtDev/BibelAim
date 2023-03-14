@@ -146,9 +146,12 @@
   <ItemGroup>
     <ClInclude Include="cheat\globals.h" />
     <ClInclude Include="cheat\gui.h" />
-    <ClInclude Include="cheat\hacks\glow\glow.h" />
-    <ClInclude Include="cheat\hacks\hacks.h" />
-    <ClInclude Include="cheat\hacks\radar\radar.h" />
+    <ClInclude Include="cheat\hacks\aimbot\rcs.h" />
+    <ClInclude Include="cheat\hacks\aimbot\triggerbot.h" />
+    <ClInclude Include="cheat\hacks\movement\bhop.h" />
+    <ClInclude Include="cheat\hacks\visuals\glow\glow.h" />
+    <ClInclude Include="cheat\hacks\threads.h" />
+    <ClInclude Include="cheat\hacks\visuals\radar\radar.h" />
     <ClInclude Include="cheat\hacks\skinchanger\skinchanger.h" />
     <ClInclude Include="cheat\offsets\csgo.hpp" />
     <ClInclude Include="cheat\utils\memory.h" />
@@ -163,9 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cheat\gui.cpp" />
-    <ClCompile Include="cheat\hacks\glow\glow.cpp" />
-    <ClCompile Include="cheat\hacks\hacks.cpp" />
-    <ClCompile Include="cheat\hacks\radar\radar.cpp" />
+    <ClCompile Include="cheat\hacks\aimbot\rcs.cpp" />
+    <ClCompile Include="cheat\hacks\aimbot\triggerbot.cpp" />
+    <ClCompile Include="cheat\hacks\movement\bhop.cpp" />
+    <ClCompile Include="cheat\hacks\visuals\glow\glow.cpp" />
+    <ClCompile Include="cheat\hacks\threads.cpp" />
+    <ClCompile Include="cheat\hacks\visuals\radar\radar.cpp" />
     <ClCompile Include="cheat\hacks\skinchanger\skinchanger.cpp" />
     <ClCompile Include="cheat\main.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />

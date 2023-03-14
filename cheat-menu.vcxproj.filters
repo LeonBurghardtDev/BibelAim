@@ -54,13 +54,22 @@
     <ClInclude Include="cheat\globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheat\hacks\hacks.h">
+    <ClInclude Include="cheat\hacks\threads.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheat\hacks\glow\glow.h">
+    <ClInclude Include="cheat\hacks\visuals\glow\glow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheat\hacks\radar\radar.h">
+    <ClInclude Include="cheat\hacks\visuals\radar\radar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\hacks\movement\bhop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\hacks\aimbot\triggerbot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\hacks\aimbot\rcs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,13 +104,22 @@
     <ClCompile Include="cheat\hacks\skinchanger\skinchanger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cheat\hacks\hacks.cpp">
+    <ClCompile Include="cheat\hacks\threads.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cheat\hacks\glow\glow.cpp">
+    <ClCompile Include="cheat\hacks\visuals\glow\glow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cheat\hacks\radar\radar.cpp">
+    <ClCompile Include="cheat\hacks\visuals\radar\radar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\hacks\movement\bhop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\hacks\aimbot\triggerbot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\hacks\aimbot\rcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
