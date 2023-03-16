@@ -8,7 +8,24 @@
 
 
 	constexpr const int GetWeaponPaint(const short& itemDefinition) {
+		
+		for (const auto& weapon : skins_ids::weapons) {
+			int weapon_id_to_find = itemDefinition; 
+			auto it = std::find_if(skins_ids::weapons.begin(), skins_ids::weapons.end(),
+				[weapon_id_to_find](const auto& weapon) {
+					return weapon.second.weapon_id == weapon_id_to_find;
+				});
+			if (it != skins_ids::weapons.end()) {
+				return it->second.skin_id;
+			}
+			else {
+				return 0;
+			}
 
+		}
+
+
+		/*
 		// https://pastebin.com/3zNVRK4W
 		// https://totalcsgo.com/skin-ids
 		switch (itemDefinition) {
@@ -18,7 +35,7 @@
 		case 9: return 344; // awp
 		case 61: return 653; // usp
 		default: return 0;
-		}
+		}*/
 	}
 
 	int skinchanger_main(const Memory& memory) {
@@ -40,6 +57,7 @@
 
 
 				const auto& itemDefinition = memory.Read<short>(weapon + offsets::m_iItemDefinitionIndex);
+				
 				if (const auto paint = GetWeaponPaint(itemDefinition)) {
 
 					const bool shouldUpdate = memory.Read < ::int32_t>(weapon + offsets::m_nFallbackPaintKit) != paint;
