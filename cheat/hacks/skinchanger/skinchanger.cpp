@@ -4,6 +4,7 @@
 #include <thread>
 #include <iostream>
 #include <array>
+#include <string>
 #include <stdexcept>
 
 
@@ -37,7 +38,7 @@
 		default: return 0;
 		}*/
 	}
-
+	
 	int skinchanger_main(const Memory& memory) {
 		
 		uintptr_t client = globals::clientAdress;
@@ -49,6 +50,7 @@
 			const auto& weapons = memory.Read<std::array<unsigned long, 8>>(localPlayer + offsets::m_hMyWeapons);
 
 			for (const auto& handle : weapons) {
+				
 				const auto& weapon = memory.Read<std::uintptr_t>((client + offsets::dwEntityList + (handle & 0xFFF) * 0x10) - 0x10);
 
 				if (!weapon) {
@@ -56,7 +58,31 @@
 				}
 
 
-				const auto& itemDefinition = memory.Read<short>(weapon + offsets::m_iItemDefinitionIndex);
+				const short itemDefinition = memory.Read<short>(weapon + offsets::m_iItemDefinitionIndex);
+
+				/* Not working static knife changer
+
+				if (itemDefinition == 42 || itemDefinition == 59) {
+
+					
+					memory.Write<short>(weapon + offsets::m_iItemDefinitionIndex, 507);
+					memory.Write<short>(weapon + 0x258, 507);
+					memory.Write<short>(weapon + 0x3224, 507);
+					memory.Write<short>(weapon + offsets::m_iItemIDHigh, -1);
+					memory.Write<short>(weapon + offsets::m_OriginalOwnerXuidLow, 0);
+					memory.Write<short>(weapon + offsets::m_iAccountID, memory.Read<short>(weapon + offsets::m_OriginalOwnerXuidHigh));
+					memory.Write<short>(weapon + offsets::m_nFallbackSeed, 125);
+					memory.Write<short>(weapon + offsets::m_flFallbackWear, 0.0f);
+					memory.Write<short>(weapon + offsets::m_nFallbackStatTrak, 1337);
+					memory.Write<short>(weapon + offsets::m_nFallbackPaintKit, 180);
+					memory.Write<int>(weapon + offsets::m_iEntityQuality, 3);
+					
+				}
+
+				*/
+
+
+
 				
 				if (const auto paint = GetWeaponPaint(itemDefinition)) {
 

@@ -30,6 +30,7 @@ int __stdcall wWinMain(
 	std::thread(threads::SkinChangerThread, memory).detach();
     std::thread(threads::MovementThread, memory).detach();
 	std::thread(threads::AimbotThread, memory).detach();
+	std::thread(threads::MiscThread, memory).detach();
     
     // create gui
     gui::CreateHWindow("BibelAim");

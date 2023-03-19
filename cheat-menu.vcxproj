@@ -146,8 +146,10 @@
   <ItemGroup>
     <ClInclude Include="cheat\globals.h" />
     <ClInclude Include="cheat\gui.h" />
+    <ClInclude Include="cheat\hacks\aimbot\aimbot.h" />
     <ClInclude Include="cheat\hacks\aimbot\rcs.h" />
     <ClInclude Include="cheat\hacks\aimbot\triggerbot.h" />
+    <ClInclude Include="cheat\hacks\misc\fov_changer.h" />
     <ClInclude Include="cheat\hacks\movement\bhop.h" />
     <ClInclude Include="cheat\hacks\visuals\glow\glow.h" />
     <ClInclude Include="cheat\hacks\threads.h" />
@@ -166,8 +168,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cheat\gui.cpp" />
+    <ClCompile Include="cheat\hacks\aimbot\aimbot.cpp" />
     <ClCompile Include="cheat\hacks\aimbot\rcs.cpp" />
     <ClCompile Include="cheat\hacks\aimbot\triggerbot.cpp" />
+    <ClCompile Include="cheat\hacks\misc\fov_changer.cpp" />
     <ClCompile Include="cheat\hacks\movement\bhop.cpp" />
     <ClCompile Include="cheat\hacks\visuals\glow\glow.cpp" />
     <ClCompile Include="cheat\hacks\threads.cpp" />

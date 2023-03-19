@@ -7,5 +7,6 @@ namespace threads {
 	void SkinChangerThread(const Memory&) noexcept;
 	void MovementThread(const Memory&) noexcept;
 	void AimbotThread(const Memory&) noexcept;
+	void MiscThread(const Memory&) noexcept;
 	
 }

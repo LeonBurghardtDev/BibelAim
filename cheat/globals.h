@@ -16,6 +16,15 @@ namespace globals {
 	inline bool bhop = false;
 
 	inline bool triggerbot = false;
+	inline int triggerbot_key = 0;
+
+	inline bool fovChanger = false;
+	inline float fovChangerValue = 106.f;
+
+    inline bool aimbot = false;
+    inline float aimbotFov = 180.f;
+	inline bool aimbotThroughWalls = false;
+    inline bool aimForHead = true;
 
 	inline bool rcs = false;
 	

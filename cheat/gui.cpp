@@ -3,7 +3,7 @@
 #include "../imgui/imgui.h"
 #include "../imgui/imgui_impl_dx9.h"
 #include "../imgui/imgui_impl_win32.h"
-
+#include <string>
 #include "globals.h"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
@@ -295,8 +295,20 @@ void gui::Render() noexcept
 
 
 			}
+			static bool recordingKey = false; // boolean to indicate if we are currently recording a key
+			static int recordedKey = globals::triggerbot_key; // variable to store the recorded key code, initialized to the current triggerbot key
 			if (ImGui::BeginTabItem("Aimbot")) {
 				ImGui::Checkbox("Triggerbot", &globals::triggerbot);
+		
+				
+				ImGui::Checkbox("Aimbot", &globals::aimbot);
+
+				if (globals::aimbot) {
+					ImGui::Checkbox("AimThroughObjects", &globals::aimbotThroughWalls);
+					ImGui::Checkbox("AimForHead", &globals::aimForHead);
+					ImGui::SliderFloat("Aimbot FOV", &globals::aimbotFov, 1.0f, 10.0f, "%.1f");
+
+				}
 				ImGui::Checkbox("RCS", &globals::rcs);
 
 
@@ -530,8 +542,8 @@ void gui::Render() noexcept
 
 						}
 					}
-
-						if (ImGui::BeginTabItem("Gloves")) {
+				
+					if (ImGui::BeginTabItem("Gloves")) {
 							ImGui::Text("CT");
 							static char ct_gloves[32] = "";
 							ImGui::InputText("##ct_gloves", ct_gloves, 32);
@@ -541,9 +553,9 @@ void gui::Render() noexcept
 							ImGui::InputText("##t_gloves", t_gloves, 32);
 
 							ImGui::EndTabItem();
-						}
+					}
 
-						if (ImGui::BeginTabItem("Knifes")) {
+					if (ImGui::BeginTabItem("Knifes")) {
 							// add content for Knifes tab here
 
 							ImGui::EndTabItem();
@@ -554,11 +566,15 @@ void gui::Render() noexcept
 				}
 				ImGui::EndTabItem();
 			}
+			
 
 			if (ImGui::BeginTabItem("Misc")) {
 
-
-
+				ImGui::Checkbox("FOV Changer", &globals::fovChanger);
+				if (globals::fovChanger) {
+					ImGui::SliderFloat("##FOV", &globals::fovChangerValue, 0, 180);
+				}
+				
 				ImGui::EndTabItem();
 			}
 			if (ImGui::BeginTabItem("Settings")) {

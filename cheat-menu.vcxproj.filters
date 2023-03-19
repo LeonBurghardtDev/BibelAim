@@ -72,6 +72,12 @@
     <ClInclude Include="cheat\hacks\aimbot\rcs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cheat\hacks\aimbot\aimbot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\hacks\misc\fov_changer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -120,6 +126,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cheat\hacks\aimbot\rcs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\hacks\aimbot\aimbot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\hacks\misc\fov_changer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
