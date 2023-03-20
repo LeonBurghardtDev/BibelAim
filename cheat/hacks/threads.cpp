@@ -9,12 +9,13 @@
 #include "misc/fov_changer.h"
 #include "aimbot/triggerbot.h"
 #include "aimbot/rcs.h"
+#include "visuals/esp/esp.h"
 #include "aimbot/aimbot.h"
 #include <thread>
 
 
 
-void threads::VisualThread(const Memory& mem) noexcept {
+void threads::VisualThread(const Memory& mem, HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) noexcept {
 	while (gui::isRunning)
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
@@ -23,6 +24,8 @@ void threads::VisualThread(const Memory& mem) noexcept {
 			glow_main(mem);
 		if (globals::radar)
 			radar_main(mem);
+	//	if(globals::esp) // not working atm
+	//		esp_main(mem, hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 	}
 }
 

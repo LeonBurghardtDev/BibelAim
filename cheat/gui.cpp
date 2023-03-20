@@ -4,6 +4,8 @@
 #include "../imgui/imgui_impl_dx9.h"
 #include "../imgui/imgui_impl_win32.h"
 #include <string>
+#include <Windows.h>
+#include <dwmapi.h>
 #include "globals.h"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
@@ -79,6 +81,7 @@ long __stdcall WindowProcess(
 
 	return DefWindowProc(window, message, wideParameter, longParameter);
 }
+
 
 void gui::CreateHWindow(const char* windowName) noexcept
 {

@@ -27,6 +27,8 @@ namespace globals {
     inline bool aimForHead = true;
 
 	inline bool rcs = false;
+
+    inline bool esp = true;
 	
 	inline bool glow = false;
 	inline float glowColor[] = { 1.0f, 0.0f, 0.0f, 1.0f};
